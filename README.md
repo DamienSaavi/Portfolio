@@ -5,6 +5,7 @@ My portfolio website made using Nextjs, iTyped, TailwindCSS, and a headless Word
 
 ### TODO
 - [ ] Tidy up source code
+- [ ] Statically generate project cards with WordPress API
 
 ### Done
 - [x] Use headless CMS - migrate to Next
