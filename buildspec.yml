@@ -17,7 +17,7 @@ phases:
     commands:
 artifacts:
   files:
-    - out/**/*
+    - out/*
     # - location
   #name: $(date +%Y-%m-%d)
   #discard-paths: yes
