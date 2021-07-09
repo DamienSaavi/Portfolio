@@ -299,14 +299,12 @@ export default function Home() {
 
 
             <div className='flex h-18 w-60 mx-auto p-4 justify-center bg-main-light z-20 rounded-xl'>
-              {/* <div className='bg-main-light mx-auto p-8 z-20 rounded-xl'> */}
               <a className='w-48 text-black text-center transform border-coa-dark bg-coa border-b-4 hover:bg-coa-highlight active:border-b-2 active:translate-y-0.5 active:mt-0.5 rounded-xl px-3 py-2.5 align-center' href='https://github.com/DamienSaavi?tab=repositories'>More on GitHub<IoLogoGithub className='ml-1 inline align-baseline' /></a>
-              {/* </div> */}
             </div>
           </div>
         </div>
         <div className='h-16'></div>
-        <footer className='text-sm  transition-all hover:text-coa transform hover:-translate-y-1 text-center p-2 pb-8'><a href='https://github.com/DamienSaavi/damiensaavi.github.io'>Designed and built by Damien Mousavi</a></footer>
+        <footer className='text-sm  transition-all hover:text-coa transform hover:-translate-y-1 text-center p-2 pb-8'><a href='https://github.com/DamienSaavi/Portfolio'>Designed and built by Damien Mousavi</a></footer>
       </main >
     </>
   )
