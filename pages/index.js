@@ -63,7 +63,7 @@ export default function Home() {
           const p = document.createElement('p')
 
           p.id = id
-          p.className = 'mb-2'
+          p.className = 'mb-4'
           terminalDiv.current.appendChild(p);
           init(document.querySelector('#' + id), {
             showCursor: false,
@@ -87,7 +87,7 @@ export default function Home() {
           const ul = document.createElement('ul')
 
           ul.id = id
-          ul.className = 'grid grid-cols-3 gap-0 mx-auto pl-4 mb-2'
+          ul.className = 'grid grid-cols-3 gap-0 mx-auto pl-4 mb-4'
           terminalDiv.current.appendChild(ul)
 
           el.map((e, i) => {
@@ -148,11 +148,12 @@ export default function Home() {
           })
           break
         case 'intro':
+          // TODO: eventually get tech list from WP API
           output = ["CSUF graduate with a bachelor's degree in computer science plus various extra-curricular activities in full-stack web development, video game development, and tutoring for math, computer science, and physics.", 'Some recent tech I’m using:', tech]
           break
         default:
           const rawOutput = await getCommandOutput(cmd)
-          output = rawOutput ? rawOutput.split(/[(\n)(\r)]/).filter(Boolean) : ['⚠ Invalid command ⚠', 'Run "help" to see all available commands.']
+          output = rawOutput ? rawOutput.split(/(\n|\r)/).filter(Boolean) : ['⚠ Invalid command ⚠', 'Run "help" to see all available commands.']
       }
 
       setTimeout(() => {
@@ -203,11 +204,11 @@ export default function Home() {
               <div className='h-4 w-4 rounded-full ml-2 flex-shrink-0 btn-max'></div>
               <span className='absolute w-full text-center'>Terminal</span>
             </div>
-            <div className='terminal-console overflow-y-auto p-2 flex-grow'>
+            <div className='terminal-console overflow-y-auto p-2'>
               <div ref={terminalDiv} className='w-full opacity-80 pb-8' id='terminal-output'>
               </div>
             </div>
-            <div className='h-14' />
+            <div className='h-14 flex-shrink-0'/>
             <div className='cmdline-container flex flex-row justify-between gap-2 absolute bottom-0 w-full p-2'>
               <form className='cmdline flex p-2 gap-2 w-full' action='#' onSubmit={(event) => { submitCommand(event) }}>
                 <p className='intro-launch opacity-90'>{'>'}</p>
