@@ -76,7 +76,7 @@ export default function Home() {
                 if (!loader.current.loading)
                   outputToTerminal(output)
               } else {
-                terminalDiv.current.innerHTML = terminalDiv.current.innerHTML.replaceAll(/(https|http):\/{2}(\w|\d|\.|\/)+/g,
+                terminalDiv.current.innerHTML = terminalDiv.current.innerHTML.replaceAll(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig,
                   '<a class="underline" target="_blank" href="$&">$&</a>')
               }
             }
