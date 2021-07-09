@@ -17,11 +17,10 @@ phases:
     commands:
 artifacts:
   files:
-    - out/**/*
-    # - location
+    - '**/*'
+  base-directory: out
+  # discard-paths: yes
   #name: $(date +%Y-%m-%d)
-  discard-paths: yes
-  #base-directory: location
 #cache:
   #paths:
     # - paths
