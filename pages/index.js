@@ -24,7 +24,8 @@ export default function Home() {
   const cmdInputDiv = useRef()
 
   useEffect(() => {
-    submitCommand(null)
+    cmdInputDiv.current.value = 'intro'
+    submitCommand()
   }, [])
 
   function toggleLoading(val) {
@@ -54,7 +55,6 @@ export default function Home() {
     const el = output.shift()
     const id = 'terminal-output-' + output.length
 
-
     // TODO: parse line by line and create html elements accordingly
 
     try {
@@ -76,6 +76,7 @@ export default function Home() {
                 if (!loader.current.loading)
                   outputToTerminal(output)
               } else {
+                typing.current = false
                 terminalDiv.current.innerHTML = terminalDiv.current.innerHTML.replaceAll(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig,
                   '<a class="underline" target="_blank" href="$&">$&</a>')
               }
@@ -106,8 +107,12 @@ export default function Home() {
               typeSpeed: 50,
               startDelay: i * 100,
               onFinished: function () {
-                if (output.length > 0 && i === el.length - 1 && !loader.current.loading)
-                  outputToTerminal(output)
+                if (i === el.length - 1) {
+                  if (output.length > 0)
+                    outputToTerminal(output)
+                  else
+                    typing.current = false
+                }
               }
             })
           }
@@ -121,15 +126,18 @@ export default function Home() {
   }
 
   async function submitCommand(event) {
-    if (!typing.current && !loader.current.loading) {
+    if (event?.preventDefault)
+      event.preventDefault()
 
-      const cmd = cmdInputDiv.current.value === '' ? 'intro' : cmdInputDiv.current.value
+    if (cmdInputDiv.current.value.match(/^\s*$/))
+      return
+
+    if (!typing.current && !loader.current.loading) {
+      toggleLoading(true)
+
+      const cmd = cmdInputDiv.current.value
       let output = []
       cmdInputDiv.current.value = ""
-
-      toggleLoading(true)
-      if (event)
-        event.preventDefault()
 
       switch (cmd.toLowerCase()) {
         case 'help':
@@ -151,8 +159,7 @@ export default function Home() {
         typing.current = true
         toggleLoading(false)
         outputToTerminal(output)
-        typing.current = false
-      }, 2500)
+      }, (Math.random()*3+2)*1000)
 
     } else {
       cmdInputDiv.current.value = ""
