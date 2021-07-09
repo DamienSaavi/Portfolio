@@ -205,7 +205,7 @@ export default function Home() {
               <span className='absolute w-full text-center'>Terminal</span>
             </div>
             <div className='terminal-console overflow-y-auto p-2'>
-              <div ref={terminalDiv} className='w-full opacity-80 pb-8' id='terminal-output'>
+              <div ref={terminalDiv} className='w-full opacity-80 pb-2' id='terminal-output'>
               </div>
             </div>
             <div className='h-14 flex-shrink-0'/>
