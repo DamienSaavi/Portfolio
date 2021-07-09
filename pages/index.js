@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react'
 import Head from 'next/head'
-import Project from '../components/Project.js'
+import Project from './../components/Project.js'
 import { init } from 'ityped'
 import { IoRocket, IoLogoGithub } from "react-icons/io5"
-import brewmate_icon from '../assets/brewmate.png'
-import vybot_icon from '../assets/vybot.png'
-import gol_icon from '../assets/gol.png'
-import bm_icon from '../assets/mailer-logo.png'
-import { getAllCommandAlias, getAllProjects, getCommandOutput } from '../lib/api.js'
+import brewmate_icon from './../assets/brewmate.png'
+import vybot_icon from './../assets/vybot.png'
+import gol_icon from './../assets/gol.png'
+import bm_icon from './../assets/mailer-logo.png'
+import { getAllCommandAlias, getAllProjects, getCommandOutput } from './../lib/api.js'
 
 const tech = [
   'React', 'MySQL', 'MongoDB',

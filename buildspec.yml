@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - npm install -g next
+  pre_build:
+    commands:
+      - npm install
+      - npm list --depth=0
+  build:
+    commands:
+      - next build
+      - next export
+  post_build:
+    commands:
+artifacts:
+  files:
+    - '**/*'
+    # - location
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: yes
+  #base-directory: location
+#cache:
+  #paths:
+    # - paths

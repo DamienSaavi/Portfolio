@@ -1,8 +1,8 @@
-import '../style/global.css'
-import NavigationBar from '../components/NavigationBar'
+import './../style/global.css'
+import NavigationBar from './../components/NavigationBar'
 import Head from 'next/head'
-import logo_sm from '../assets/logo-sm.png'
-import logo_md from '../assets/logo-md.png'
+import logo_sm from './../assets/logo-sm.png'
+import logo_md from './../assets/logo-md.png'
 
 function MyApp({ Component, pageProps }) {
   return (
